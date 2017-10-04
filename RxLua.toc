@@ -1,0 +1,7 @@
+## Interface: 70300
+
+## Title: Lib: RxLua
+## Notes: Reactive Extensions for WoW
+## Author: Kroltan (Etsuro@Azralon), Bjorn "bjornbytes" Swenson (GitHub)
+## Dependencies: LibStub
+rx.lua

@@ -1,6 +1,12 @@
 -- RxLua v0.0.2
--- https://github.com/bjornbytes/rxlua
+-- https://github.com/kroltan/rxlua
 -- MIT License
+
+local ReactiveCraft = LibStub:NewLibrary("ReactiveCraft", 1)
+
+if not ReactiveCraft then
+  return
+end
 
 local util = {}
 
@@ -2222,16 +2228,14 @@ ReplaySubject.__call = ReplaySubject.onNext
 Observable.wrap = Observable.buffer
 Observable['repeat'] = Observable.replicate
 
-return {
-  util = util,
-  Subscription = Subscription,
-  Observer = Observer,
-  Observable = Observable,
-  ImmediateScheduler = ImmediateScheduler,
-  CooperativeScheduler = CooperativeScheduler,
-  TimeoutScheduler = TimeoutScheduler,
-  Subject = Subject,
-  AsyncSubject = AsyncSubject,
-  BehaviorSubject = BehaviorSubject,
-  ReplaySubject = ReplaySubject
-}
+ReactiveCraft.util = util
+ReactiveCraft.Subscription = Subscription
+ReactiveCraft.Observer = Observer
+ReactiveCraft.Observable = Observable
+ReactiveCraft.ImmediateScheduler = ImmediateScheduler
+ReactiveCraft.CooperativeScheduler = CooperativeScheduler
+ReactiveCraft.TimeoutScheduler = TimeoutScheduler
+ReactiveCraft.Subject = Subject
+ReactiveCraft.AsyncSubject = AsyncSubject
+ReactiveCraft.BehaviorSubject = BehaviorSubject
+ReactiveCraft.ReplaySubject = ReplaySubject

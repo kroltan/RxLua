@@ -1,0 +1,11 @@
+required-dependencies:
+    - LibStub
+license-output: LICENSE
+ignore:
+    - doc
+    - examples
+    - rockspec
+    - src
+    - tests
+    - tools
+    - README.md

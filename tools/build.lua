@@ -72,8 +72,14 @@ local files = {
 
 local header = [[
 -- RxLua v0.0.2
--- https://github.com/bjornbytes/rxlua
+-- https://github.com/kroltan/rxlua
 -- MIT License
+
+local ReactiveCraft = LibStub:NewLibrary("RxLua", 1)
+
+if not ReactiveCraft then
+  return
+end
 
 ]]
 
@@ -87,19 +93,19 @@ exports.homepage = 'https://github.com/bjornbytes/rxlua'
 
 ]]
 
-local footer = [[return {
-  util = util,
-  Subscription = Subscription,
-  Observer = Observer,
-  Observable = Observable,
-  ImmediateScheduler = ImmediateScheduler,
-  CooperativeScheduler = CooperativeScheduler,
-  TimeoutScheduler = TimeoutScheduler,
-  Subject = Subject,
-  AsyncSubject = AsyncSubject,
-  BehaviorSubject = BehaviorSubject,
-  ReplaySubject = ReplaySubject
-}]]
+local footer = [[
+ReactiveCraft.util = util
+ReactiveCraft.Subscription = Subscription
+ReactiveCraft.Observer = Observer
+ReactiveCraft.Observable = Observable
+ReactiveCraft.ImmediateScheduler = ImmediateScheduler
+ReactiveCraft.CooperativeScheduler = CooperativeScheduler
+ReactiveCraft.TimeoutScheduler = TimeoutScheduler
+ReactiveCraft.Subject = Subject
+ReactiveCraft.AsyncSubject = AsyncSubject
+ReactiveCraft.BehaviorSubject = BehaviorSubject
+ReactiveCraft.ReplaySubject = ReplaySubject
+]]
 
 local output = ''
 

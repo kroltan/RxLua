@@ -17,11 +17,16 @@ end
 -- @arg {number=0} delay - The delay, in milliseconds.
 -- @returns {Subscription}
 function TimeoutScheduler:schedule(action, delay, ...)
-  local timer = require 'timer'
-  local subscription
-  local handle = timer.setTimeout(delay, action, ...)
+  local cancelled = false
+  delay = delay or 0
+  C_Timer.After(delay / 1000, function()
+    if cancelled then
+      return
+    end
+    action(...)
+  end)
   return Subscription.create(function()
-    timer.clearTimeout(handle)
+    cancelled = true
   end)
 end
 
